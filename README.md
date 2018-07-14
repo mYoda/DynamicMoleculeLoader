@@ -1,9 +1,12 @@
 # DynamicMoleculeLoader
 <img align="left" width="200" src="/ReadmeSources/MoleculeLoader.gif" />
-<img align="right" width="200" src="/ReadmeSources/2.png" />
+<img width="200" src="/ReadmeSources/2.png" />
 Example how to make dynamic movement of molecule points using Core Animation and layers
 
 Clone or Download a Demo project. If you want to add that loader to your own project - copy and paste files from "Loader" folder.
+
+
+
 ---
 
 ### Usage
