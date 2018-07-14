@@ -10,7 +10,7 @@ import UIKit
 
 class MoleculePolygonePointsGenerator: NSObject {
     
-    public class func linkedPolygonePoints(fromPoint point: MoleculePoint, facetsCount: Int, angle: CGFloat = 0, radius: CGFloat, centerView: CGPoint, innerPointIndex: Int, outputPointIndex: Int, superLayer: CALayer) -> ([MoleculePoint], MoleculePoint) {
+    class func linkedPolygonePoints(fromPoint point: MoleculePoint, facetsCount: Int, angle: CGFloat = 0, radius: CGFloat, centerView: CGPoint, innerPointIndex: Int, outputPointIndex: Int, superLayer: CALayer) -> ([MoleculePoint], MoleculePoint) {
         
         let points = MoleculePolygonePointsGenerator.generateCGPoints(facetsCount: facetsCount, angle: angle, radius: radius, center: centerView)
         
@@ -20,7 +20,7 @@ class MoleculePolygonePointsGenerator: NSObject {
         return (moleculePoints, lastPoint)
     }
     
-    public class func generateCGPoints(facetsCount: Int, angle: CGFloat = 0, radius: CGFloat, center: CGPoint) -> [CGPoint] {
+    class func generateCGPoints(facetsCount: Int, angle: CGFloat = 0, radius: CGFloat, center: CGPoint) -> [CGPoint] {
         var points = [CGPoint]()
         let center = center
         for n in 0...(facetsCount - 1) {
@@ -36,7 +36,7 @@ class MoleculePolygonePointsGenerator: NSObject {
         return points
     }
     
-    private class func linkPolygonePoint(withCGPoints cgPoints: [CGPoint], innerPointIndex: Int, outPointIndex: Int, superLayer: CALayer) -> (MoleculePoint, [MoleculePoint], MoleculePoint) {
+    fileprivate class func linkPolygonePoint(withCGPoints cgPoints: [CGPoint], innerPointIndex: Int, outPointIndex: Int, superLayer: CALayer) -> (MoleculePoint, [MoleculePoint], MoleculePoint) {
         var points = [MoleculePoint]()
         for cgPoint in cgPoints {
             points.append(MoleculePoint(with: cgPoint, superLayer: superLayer))
@@ -64,7 +64,7 @@ class MoleculePolygonePointsGenerator: NSObject {
         return (points[innerPointIndex], points, points[outPointIndex])
     }
     
-    private class func calculateCenter(from innerPoint: CGPoint, radius: CGFloat) -> CGPoint {
+    fileprivate class func calculateCenter(from innerPoint: CGPoint, radius: CGFloat) -> CGPoint {
         let center = CGPoint(x: innerPoint.x + radius, y: innerPoint.y)
         return center
     }

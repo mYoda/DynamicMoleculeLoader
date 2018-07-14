@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     
     @objc private func tapAction() {
         
-        self.loader?.stop()
-        self.loader = Loader.show(in: self.view, initialPoints: nil, timeInterval: nil, withCompletionBlock: { (loader) in
+        loader?.stop()
+        loader = Loader.show(in: self.view, initialPoints: nil, timeInterval: nil, withCompletionBlock: { (loader) in
             print("stop loader")
         })
     }
